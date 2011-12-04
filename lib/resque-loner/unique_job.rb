@@ -30,7 +30,7 @@ module Resque
             arg.is_a?(Hash) ? arg.sort : arg
           end
 
-          digest = Digest::MD5.hexdigest encode(:class => job, :args => args)
+          digest = Digest::MD5.hexdigest encode([job, args])
           digest
         end
       end # ClassMethods
